@@ -5,12 +5,12 @@ pops = d.map(function(a){return a['total'];});
 total_pop = pops.reduce(function(a, b) {return a + b;});
 
 girls = d.map(function(a){return a['females'];}).reduce(function(a, b) {return a + b;});
-console.log(girls/total_pop * 100)
+document.getElementById("percent_female").innerHTML = (girls/total_pop)*100;
 
 minors = d.filter(function(a){return a['age'] < 18;}).map(function(a){return a['total'];}).reduce(function(a, b) {return a + b;});
-console.log(minors);
+document.getElementById("percent_minors").innerHTML = (minors/total_pop)*100;
 
 max_pop = Math.max(...pops);
 age_group = d[pops.indexOf(max_pop)]['age'];
-
-
+console.log(age_group);
+document.getElementById("age").innerHTML = age_group;
